@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://drr4q6svxpjoo"]
+
+[ext_resource type="Texture2D" uid="uid://dkco7ma2gv8yy" path="res://Sprites/HadamardGate/a4c15b66-7f9c-41e9-9400-b2ef12868a09-1.png.png" id="1_gh4nq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2qn7n"]
+size = Vector2(50, 50)
+
+[node name="HadamardGate" type="Area2D"]
+modulate = Color(1, 1, 1, 0.686275)
+texture_filter = 1
+scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2qn7n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gh4nq")

@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtlt543bwpwpe"]
+
+[ext_resource type="PackedScene" uid="uid://bt3ynf7keq188" path="res://Scenes/background.tscn" id="1_k4pob"]
+[ext_resource type="PackedScene" uid="uid://db8ct184eljqn" path="res://Scenes/block.tscn" id="2_picki"]
+[ext_resource type="PackedScene" uid="uid://drr4q6svxpjoo" path="res://Scenes/hadamard_gate.tscn" id="3_3raty"]
+[ext_resource type="PackedScene" uid="uid://b5qqd2nkbfher" path="res://Scenes/mouse.tscn" id="4_cy36j"]
+
+[node name="HadamardTest" type="Node"]
+
+[node name="background" type="Node2D" parent="."]
+
+[node name="background" parent="background" instance=ExtResource("1_k4pob")]
+position = Vector2(100, 100)
+
+[node name="background2" parent="background" instance=ExtResource("1_k4pob")]
+position = Vector2(300, 100)
+
+[node name="background3" parent="background" instance=ExtResource("1_k4pob")]
+position = Vector2(500, 100)
+
+[node name="background4" parent="background" instance=ExtResource("1_k4pob")]
+position = Vector2(100, 300)
+
+[node name="background5" parent="background" instance=ExtResource("1_k4pob")]
+position = Vector2(300, 300)
+
+[node name="background6" parent="background" instance=ExtResource("1_k4pob")]
+position = Vector2(500, 300)
+
+[node name="background7" parent="background" instance=ExtResource("1_k4pob")]
+position = Vector2(100, 500)
+
+[node name="background8" parent="background" instance=ExtResource("1_k4pob")]
+position = Vector2(300, 500)
+
+[node name="background9" parent="background" instance=ExtResource("1_k4pob")]
+position = Vector2(500, 500)
+
+[node name="block" parent="." instance=ExtResource("2_picki")]
+position = Vector2(550, 350)
+
+[node name="block2" parent="." instance=ExtResource("2_picki")]
+position = Vector2(450, 50)
+
+[node name="block3" parent="." instance=ExtResource("2_picki")]
+position = Vector2(450, 550)
+
+[node name="HadamardGate" parent="." instance=ExtResource("3_3raty")]
+position = Vector2(250, 350)
+
+[node name="Mouse" parent="." instance=ExtResource("4_cy36j")]
+position = Vector2(50, 350)
