@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8c6cu5o4kn16"]
+
+[ext_resource type="PackedScene" uid="uid://bt3ynf7keq188" path="res://Scenes/background.tscn" id="1_o3oxg"]
+[ext_resource type="PackedScene" uid="uid://b5qqd2nkbfher" path="res://Scenes/mouse.tscn" id="1_ucf37"]
+[ext_resource type="PackedScene" uid="uid://db8ct184eljqn" path="res://Scenes/block.tscn" id="2_bj1q0"]
+
+[node name="Main" type="Node"]
+
+[node name="background" type="Node2D" parent="."]
+
+[node name="background" parent="background" instance=ExtResource("1_o3oxg")]
+position = Vector2(100, 100)
+
+[node name="background2" parent="background" instance=ExtResource("1_o3oxg")]
+position = Vector2(300, 100)
+
+[node name="background3" parent="background" instance=ExtResource("1_o3oxg")]
+position = Vector2(500, 100)
+
+[node name="background4" parent="background" instance=ExtResource("1_o3oxg")]
+position = Vector2(100, 300)
+
+[node name="background5" parent="background" instance=ExtResource("1_o3oxg")]
+position = Vector2(300, 300)
+
+[node name="background6" parent="background" instance=ExtResource("1_o3oxg")]
+position = Vector2(500, 300)
+
+[node name="background7" parent="background" instance=ExtResource("1_o3oxg")]
+position = Vector2(100, 500)
+
+[node name="background8" parent="background" instance=ExtResource("1_o3oxg")]
+position = Vector2(300, 500)
+
+[node name="background9" parent="background" instance=ExtResource("1_o3oxg")]
+position = Vector2(500, 500)
+
+[node name="block" parent="." instance=ExtResource("2_bj1q0")]
+position = Vector2(450, 250)
+
+[node name="block2" parent="." instance=ExtResource("2_bj1q0")]
+position = Vector2(450, 350)
+
+[node name="block3" parent="." instance=ExtResource("2_bj1q0")]
+position = Vector2(350, 450)
+
+[node name="block4" parent="." instance=ExtResource("2_bj1q0")]
+position = Vector2(350, 50)
+
+[node name="Mouse" parent="." instance=ExtResource("1_ucf37")]
+position = Vector2(50, 250)
+
+[node name="Mouse2" parent="." instance=ExtResource("1_ucf37")]
+position = Vector2(50, 350)
+qubit = 0

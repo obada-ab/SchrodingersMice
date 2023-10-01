@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://db8ct184eljqn"]
+
+[ext_resource type="Texture2D" uid="uid://b6mf7a1jvrgpv" path="res://Sprites/Block/20eb3d05-f771-4a1b-b8ec-afe569d1843d.png" id="1_h53ep"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bx7ef"]
+size = Vector2(100, 100)
+
+[node name="block" type="Area2D"]
+texture_filter = 1
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_h53ep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bx7ef")
