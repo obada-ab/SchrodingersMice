@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwkdj25cwnskj"]
+
+[ext_resource type="Texture2D" uid="uid://djtoo347ee5jw" path="res://Sprites/Exit/a4c15b66-7f9c-41e9-9400-b2ef12868a12.png.png" id="1_ckym1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mirsn"]
+size = Vector2(50, 25)
+
+[node name="Exit" type="Area2D"]
+texture_filter = 1
+scale = Vector2(2, 2)
+collision_layer = 128
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -12.5)
+scale = Vector2(0.6, 0.5)
+texture = ExtResource("1_ckym1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -37.5)
+shape = SubResource("RectangleShape2D_mirsn")
+debug_color = Color(0.835294, 0.364706, 0.360784, 0.419608)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dtgts0s7cvoki" path="res://Sprites/Background/d8685775-ce4e-46b1-8631-9f28942c0405.png" id="1_q1758"]
 
-[node name="background" type="Sprite2D"]
+[node name="Background" type="Sprite2D"]
 texture_filter = 1
 scale = Vector2(2, 2)
 texture = ExtResource("1_q1758")

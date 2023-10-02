@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuj3h16csa8fl"]
+
+[ext_resource type="Texture2D" uid="uid://d3lxdms83riyb" path="res://Sprites/HUD/ea3498eb-8d17-4e8b-b3a0-a1b0144ac91a.png" id="1_7isvl"]
+
+[node name="HUD" type="Node2D"]
+texture_filter = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_7isvl")
