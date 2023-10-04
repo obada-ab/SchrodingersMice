@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5qqd2nkbfher"]
+[gd_scene load_steps=10 format=3 uid="uid://b5qqd2nkbfher"]
 
 [ext_resource type="Script" path="res://Scripts/mouse.gd" id="1_c22s2"]
 [ext_resource type="Texture2D" uid="uid://dsdvtf751kbnd" path="res://Sprites/Mouse/37d33ce4-533e-4eb5-a16b-efcd109fb78c.png" id="1_n4x0v"]
@@ -32,6 +32,9 @@ size = Vector2(96, 96)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6od84"]
 size = Vector2(92, 92)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjsx6"]
+size = Vector2(87, 86)
+
 [node name="Mouse" type="Area2D"]
 texture_filter = 1
 collision_layer = 0
@@ -55,5 +58,14 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_6od84")
 debug_color = Color(0.686275, 0.427451, 0.682353, 0.419608)
 
+[node name="ExitDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDetector"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_xjsx6")
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_entered" from="HadamardDetector" to="." method="_on_hadamard_detector_area_entered"]
+[connection signal="area_exited" from="ExitDetector" to="." method="_on_exit_detector_area_exited"]

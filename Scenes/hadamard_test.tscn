@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtlt543bwpwpe"]
+[gd_scene load_steps=9 format=3 uid="uid://dtlt543bwpwpe"]
 
 [ext_resource type="PackedScene" uid="uid://bt3ynf7keq188" path="res://Scenes/background.tscn" id="1_k4pob"]
+[ext_resource type="PackedScene" uid="uid://bmvdhyek727od" path="res://Scenes/game_state_handler.tscn" id="1_x5u5c"]
 [ext_resource type="PackedScene" uid="uid://db8ct184eljqn" path="res://Scenes/block.tscn" id="2_picki"]
 [ext_resource type="PackedScene" uid="uid://dejxuxoiye3wy" path="res://Scenes/wall.tscn" id="3_2tu58"]
 [ext_resource type="PackedScene" uid="uid://drr4q6svxpjoo" path="res://Scenes/hadamard_gate.tscn" id="3_3raty"]
@@ -59,6 +60,18 @@ position = Vector2(500, 700)
 
 [node name="background16" parent="Background" instance=ExtResource("1_k4pob")]
 position = Vector2(700, 700)
+
+[node name="GameStateHandler" parent="." instance=ExtResource("1_x5u5c")]
+position = Vector2(100, 200)
+
+[node name="HadamardGate" parent="GameStateHandler" instance=ExtResource("3_3raty")]
+position = Vector2(250, 450)
+
+[node name="Mouse" parent="GameStateHandler" instance=ExtResource("4_cy36j")]
+position = Vector2(150, 450)
+
+[node name="Mouse2" parent="GameStateHandler" instance=ExtResource("4_cy36j")]
+position = Vector2(-50, 450)
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -191,13 +204,7 @@ position = Vector2(400, 900)
 [node name="Blocks" type="Node2D" parent="."]
 
 [node name="block2" parent="Blocks" instance=ExtResource("2_picki")]
-position = Vector2(300, 900)
+position = Vector2(750, 150)
 
 [node name="block3" parent="Blocks" instance=ExtResource("2_picki")]
-position = Vector2(450, 450)
-
-[node name="HadamardGate" parent="." instance=ExtResource("3_3raty")]
-position = Vector2(250, 450)
-
-[node name="Mouse" parent="." instance=ExtResource("4_cy36j")]
-position = Vector2(50, 450)
+position = Vector2(550, 650)
