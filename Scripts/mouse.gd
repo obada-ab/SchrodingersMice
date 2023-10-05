@@ -22,7 +22,8 @@ func _ready():
 	mouse_exited_level.connect(get_parent()._on_mouse_exited)
 	mouse_split.connect(get_parent()._on_mouse_split)
 	mouse_dead.connect(get_parent()._on_mouse_dead)
-	get_parent().universe_value.connect(_on_universe_value)
+	get_parent().send_qubit.connect(_on_send_qubit)
+	position = (position / 50).round() * 50
 	mouse_ready.emit()
 
 
@@ -66,7 +67,6 @@ func _on_area_entered(area):
 	else :
 		splitting = true
 		rotating = false
-		qubit = 1
 		shake = 1
 		mouse_split.emit()
 
@@ -85,7 +85,7 @@ func _on_exit_detector_area_exited(area):
 	queue_free()
 
 
-func _on_universe_value(val):
+func _on_send_qubit(val):
 	if splitting:
 		qubit = val
 		shake = 1

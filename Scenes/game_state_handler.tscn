@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmvdhyek727od"]
-
-[ext_resource type="Script" path="res://GameStateHandler.gd" id="1_vnpif"]
-
-[node name="GameStateHandler" type="Node2D"]
-script = ExtResource("1_vnpif")

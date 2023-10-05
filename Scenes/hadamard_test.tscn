@@ -1,215 +1,501 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtlt543bwpwpe"]
+[gd_scene load_steps=15 format=3 uid="uid://dtlt543bwpwpe"]
 
-[ext_resource type="Script" path="res://Scenes/GameInstance.gd" id="1_ihx28"]
 [ext_resource type="PackedScene" uid="uid://bt3ynf7keq188" path="res://Scenes/background.tscn" id="1_k4pob"]
-[ext_resource type="PackedScene" uid="uid://bmvdhyek727od" path="res://Scenes/game_state_handler.tscn" id="1_x5u5c"]
+[ext_resource type="PackedScene" uid="uid://c2o0wmw5hh00f" path="res://Scenes/universe_handler.tscn" id="1_lg57d"]
+[ext_resource type="PackedScene" uid="uid://bmvdhyek727od" path="res://Scenes/universe.tscn" id="1_x5u5c"]
 [ext_resource type="PackedScene" uid="uid://db8ct184eljqn" path="res://Scenes/block.tscn" id="2_picki"]
 [ext_resource type="PackedScene" uid="uid://dejxuxoiye3wy" path="res://Scenes/wall.tscn" id="3_2tu58"]
 [ext_resource type="PackedScene" uid="uid://drr4q6svxpjoo" path="res://Scenes/hadamard_gate.tscn" id="3_3raty"]
 [ext_resource type="PackedScene" uid="uid://b5qqd2nkbfher" path="res://Scenes/mouse.tscn" id="4_cy36j"]
 [ext_resource type="PackedScene" uid="uid://bwkdj25cwnskj" path="res://Scenes/exit.tscn" id="4_us1am"]
 [ext_resource type="PackedScene" uid="uid://cuj3h16csa8fl" path="res://Scenes/hud.tscn" id="5_26a4x"]
+[ext_resource type="Texture2D" uid="uid://c6nffi1degjwi" path="res://Sprites/Static/noise1.png" id="9_fo3aq"]
+[ext_resource type="Texture2D" uid="uid://beo5ik83827lw" path="res://Sprites/Static/noise2.png" id="10_jcwu6"]
+[ext_resource type="Texture2D" uid="uid://b6grp55wsbifb" path="res://Sprites/Static/noise3.png" id="11_5ihg8"]
+[ext_resource type="Texture2D" uid="uid://11kyauu4bjiq" path="res://Sprites/Static/noise4.png" id="12_a2u8i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ynbsj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_fo3aq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_jcwu6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5ihg8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_a2u8i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [node name="HadamardTest" type="Node"]
 
-[node name="GameInstance" type="Node2D" parent="."]
-script = ExtResource("1_ihx28")
+[node name="UniverseHandler" parent="." instance=ExtResource("1_lg57d")]
 
-[node name="Background" type="Node2D" parent="GameInstance"]
+[node name="Universe" parent="UniverseHandler" instance=ExtResource("1_x5u5c")]
+position = Vector2(40, 40)
+scale = Vector2(0.33, 0.33)
 
-[node name="background" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
+[node name="Background" type="Node2D" parent="UniverseHandler/Universe"]
+
+[node name="background" parent="UniverseHandler/Universe/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(100, 100)
 
-[node name="background2" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
+[node name="background2" parent="UniverseHandler/Universe/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(300, 100)
 
-[node name="background3" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
+[node name="background3" parent="UniverseHandler/Universe/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(500, 100)
 
-[node name="background4" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
+[node name="background4" parent="UniverseHandler/Universe/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(100, 300)
 
-[node name="background5" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
+[node name="background5" parent="UniverseHandler/Universe/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(300, 300)
 
-[node name="background6" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
+[node name="background6" parent="UniverseHandler/Universe/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(500, 300)
 
-[node name="background7" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
+[node name="background7" parent="UniverseHandler/Universe/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(100, 500)
 
-[node name="background8" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
+[node name="background8" parent="UniverseHandler/Universe/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(300, 500)
 
-[node name="background9" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
+[node name="background9" parent="UniverseHandler/Universe/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(500, 500)
 
-[node name="background10" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
+[node name="background10" parent="UniverseHandler/Universe/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(700, 100)
 
-[node name="background11" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
+[node name="background11" parent="UniverseHandler/Universe/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(700, 300)
 
-[node name="background12" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
+[node name="background12" parent="UniverseHandler/Universe/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(700, 500)
 
-[node name="background13" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
+[node name="background13" parent="UniverseHandler/Universe/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(100, 700)
 
-[node name="background14" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
+[node name="background14" parent="UniverseHandler/Universe/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(300, 700)
 
-[node name="background15" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
+[node name="background15" parent="UniverseHandler/Universe/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(500, 700)
 
-[node name="background16" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
+[node name="background16" parent="UniverseHandler/Universe/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(700, 700)
 
-[node name="GameStateHandler" parent="GameInstance" instance=ExtResource("1_x5u5c")]
-position = Vector2(100, 200)
+[node name="HadamardGate" parent="UniverseHandler/Universe" instance=ExtResource("3_3raty")]
+position = Vector2(350, 650)
 
-[node name="HadamardGate" parent="GameInstance/GameStateHandler" instance=ExtResource("3_3raty")]
-position = Vector2(250, 450)
+[node name="HadamardGate2" parent="UniverseHandler/Universe" instance=ExtResource("3_3raty")]
+position = Vector2(350, 550)
 
-[node name="Mouse" parent="GameInstance/GameStateHandler" instance=ExtResource("4_cy36j")]
-position = Vector2(150, 450)
+[node name="Mouse2" parent="UniverseHandler/Universe" instance=ExtResource("4_cy36j")]
+position = Vector2(151.515, 651.515)
 
-[node name="Mouse2" parent="GameInstance/GameStateHandler" instance=ExtResource("4_cy36j")]
-position = Vector2(-50, 450)
+[node name="Mouse3" parent="UniverseHandler/Universe" instance=ExtResource("4_cy36j")]
+position = Vector2(151.515, 545.455)
 
-[node name="Blocks" type="Node2D" parent="GameInstance/GameStateHandler"]
-position = Vector2(-100, -200)
+[node name="Blocks" type="Node2D" parent="UniverseHandler/Universe"]
 
-[node name="block2" parent="GameInstance/GameStateHandler/Blocks" instance=ExtResource("2_picki")]
+[node name="block2" parent="UniverseHandler/Universe/Blocks" instance=ExtResource("2_picki")]
 position = Vector2(750, 150)
 
-[node name="block3" parent="GameInstance/GameStateHandler/Blocks" instance=ExtResource("2_picki")]
+[node name="block3" parent="UniverseHandler/Universe/Blocks" instance=ExtResource("2_picki")]
 position = Vector2(550, 650)
 
-[node name="Walls" type="Node2D" parent="GameInstance"]
+[node name="block4" parent="UniverseHandler/Universe/Blocks" instance=ExtResource("2_picki")]
+position = Vector2(550, 550)
 
-[node name="Wall" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Walls" type="Node2D" parent="UniverseHandler/Universe"]
+
+[node name="Wall" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(-50, 750)
 
-[node name="Wall2" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall2" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(-50, 650)
 
-[node name="Wall3" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall3" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(-50, 550)
 
-[node name="Wall4" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall4" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(-50, 450)
 
-[node name="Wall5" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall5" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(-50, 350)
 
-[node name="Wall6" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall6" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(-50, 250)
 
-[node name="Wall7" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall7" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(-50, 150)
 
-[node name="Wall10" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall10" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(150, -50)
 rotation = 1.5708
 
-[node name="Wall11" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall11" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(250, -50)
 rotation = 1.5708
 
-[node name="Wall12" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall12" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(350, -50)
 rotation = 1.5708
 
-[node name="Wall13" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall13" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(450, -50)
 rotation = 1.5708
 
-[node name="Wall14" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall14" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(550, -50)
 rotation = 1.5708
 
-[node name="Wall15" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall15" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(650, -50)
 rotation = 1.5708
 
-[node name="Wall16" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall16" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(750, -50)
 rotation = 1.5708
 
-[node name="Wall17" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall17" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(850, 50)
 rotation = -3.14159
 
-[node name="Wall18" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall18" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(850, 150)
 rotation = -3.14159
 
-[node name="Wall19" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall19" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(850, 250)
 rotation = -3.14159
 
-[node name="Wall20" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall20" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(850, 350)
 rotation = -3.14159
 
-[node name="Wall21" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall21" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(850, 450)
 rotation = -3.14159
 
-[node name="Wall22" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall22" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(850, 550)
 rotation = -3.14159
 
-[node name="Wall23" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall23" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(850, 650)
 rotation = -3.14159
 
-[node name="Wall24" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall24" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(850, 750)
 rotation = -3.14159
 
-[node name="Wall25" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall25" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(750, 850)
 rotation = -1.5708
 
-[node name="Wall26" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall26" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(650, 850)
 rotation = -1.5708
 
-[node name="Wall27" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall27" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(550, 850)
 rotation = -1.5708
 
-[node name="Wall28" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall28" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(450, 850)
 rotation = -1.5708
 
-[node name="Wall29" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall29" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(350, 850)
 rotation = -1.5708
 
-[node name="Wall30" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall30" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(250, 850)
 rotation = -1.5708
 
-[node name="Wall31" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall31" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(150, 850)
 rotation = -1.5708
 
-[node name="Wall32" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall32" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(50, 850)
 rotation = -1.5708
 
-[node name="Wall33" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall33" parent="UniverseHandler/Universe/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(50, -50)
 rotation = 1.5708
 
-[node name="Exits" type="Node2D" parent="GameInstance"]
+[node name="Exits" type="Node2D" parent="UniverseHandler/Universe"]
 
-[node name="Exit2" parent="GameInstance/Exits" instance=ExtResource("4_us1am")]
+[node name="Exit2" parent="UniverseHandler/Universe/Exits" instance=ExtResource("4_us1am")]
 position = Vector2(50, 50)
 rotation = -1.5708
 
-[node name="HUD" parent="GameInstance" instance=ExtResource("5_26a4x")]
+[node name="Foreground" type="Node2D" parent="UniverseHandler"]
+position = Vector2(445, 40)
+scale = Vector2(0.66, 0.66)
+metadata/_edit_group_ = true
+
+[node name="StaticNoise" type="AnimatedSprite2D" parent="UniverseHandler/Foreground"]
+z_index = 1
+position = Vector2(50, 50)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise2" type="AnimatedSprite2D" parent="UniverseHandler/Foreground"]
+z_index = 1
+position = Vector2(350, 50)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise3" type="AnimatedSprite2D" parent="UniverseHandler/Foreground"]
+z_index = 1
+position = Vector2(250, 50)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise4" type="AnimatedSprite2D" parent="UniverseHandler/Foreground"]
+z_index = 1
+position = Vector2(150, 50)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise5" type="AnimatedSprite2D" parent="UniverseHandler/Foreground"]
+z_index = 1
+position = Vector2(50, 150)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise6" type="AnimatedSprite2D" parent="UniverseHandler/Foreground"]
+z_index = 1
+position = Vector2(350, 150)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise7" type="AnimatedSprite2D" parent="UniverseHandler/Foreground"]
+z_index = 1
+position = Vector2(250, 150)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise8" type="AnimatedSprite2D" parent="UniverseHandler/Foreground"]
+z_index = 1
+position = Vector2(150, 150)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise9" type="AnimatedSprite2D" parent="UniverseHandler/Foreground"]
+z_index = 1
+position = Vector2(50, 250)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise10" type="AnimatedSprite2D" parent="UniverseHandler/Foreground"]
+z_index = 1
+position = Vector2(350, 250)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise11" type="AnimatedSprite2D" parent="UniverseHandler/Foreground"]
+z_index = 1
+position = Vector2(250, 250)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise12" type="AnimatedSprite2D" parent="UniverseHandler/Foreground"]
+z_index = 1
+position = Vector2(150, 250)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise13" type="AnimatedSprite2D" parent="UniverseHandler/Foreground"]
+z_index = 1
+position = Vector2(50, 350)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise14" type="AnimatedSprite2D" parent="UniverseHandler/Foreground"]
+z_index = 1
+position = Vector2(350, 350)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise15" type="AnimatedSprite2D" parent="UniverseHandler/Foreground"]
+z_index = 1
+position = Vector2(250, 350)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise16" type="AnimatedSprite2D" parent="UniverseHandler/Foreground"]
+z_index = 1
+position = Vector2(150, 350)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="Foreground2" type="Node2D" parent="UniverseHandler"]
+position = Vector2(45.0001, 410)
+scale = Vector2(0.66, 0.66)
+metadata/_edit_group_ = true
+
+[node name="StaticNoise" type="AnimatedSprite2D" parent="UniverseHandler/Foreground2"]
+z_index = 1
+position = Vector2(50, 50)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise2" type="AnimatedSprite2D" parent="UniverseHandler/Foreground2"]
+z_index = 1
+position = Vector2(350, 50)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise3" type="AnimatedSprite2D" parent="UniverseHandler/Foreground2"]
+z_index = 1
+position = Vector2(250, 50)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise4" type="AnimatedSprite2D" parent="UniverseHandler/Foreground2"]
+z_index = 1
+position = Vector2(150, 50)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise5" type="AnimatedSprite2D" parent="UniverseHandler/Foreground2"]
+z_index = 1
+position = Vector2(50, 150)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise6" type="AnimatedSprite2D" parent="UniverseHandler/Foreground2"]
+z_index = 1
+position = Vector2(350, 150)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise7" type="AnimatedSprite2D" parent="UniverseHandler/Foreground2"]
+z_index = 1
+position = Vector2(250, 150)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise8" type="AnimatedSprite2D" parent="UniverseHandler/Foreground2"]
+z_index = 1
+position = Vector2(150, 150)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise9" type="AnimatedSprite2D" parent="UniverseHandler/Foreground2"]
+z_index = 1
+position = Vector2(50, 250)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise10" type="AnimatedSprite2D" parent="UniverseHandler/Foreground2"]
+z_index = 1
+position = Vector2(350, 250)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise11" type="AnimatedSprite2D" parent="UniverseHandler/Foreground2"]
+z_index = 1
+position = Vector2(250, 250)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise12" type="AnimatedSprite2D" parent="UniverseHandler/Foreground2"]
+z_index = 1
+position = Vector2(150, 250)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise13" type="AnimatedSprite2D" parent="UniverseHandler/Foreground2"]
+z_index = 1
+position = Vector2(50, 350)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise14" type="AnimatedSprite2D" parent="UniverseHandler/Foreground2"]
+z_index = 1
+position = Vector2(350, 350)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise15" type="AnimatedSprite2D" parent="UniverseHandler/Foreground2"]
+z_index = 1
+position = Vector2(250, 350)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise16" type="AnimatedSprite2D" parent="UniverseHandler/Foreground2"]
+z_index = 1
+position = Vector2(150, 350)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="Foreground3" type="Node2D" parent="UniverseHandler"]
+position = Vector2(445, 405)
+scale = Vector2(0.66, 0.66)
+metadata/_edit_group_ = true
+
+[node name="StaticNoise" type="AnimatedSprite2D" parent="UniverseHandler/Foreground3"]
+z_index = 1
+position = Vector2(50, 50)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise2" type="AnimatedSprite2D" parent="UniverseHandler/Foreground3"]
+z_index = 1
+position = Vector2(350, 50)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise3" type="AnimatedSprite2D" parent="UniverseHandler/Foreground3"]
+z_index = 1
+position = Vector2(250, 50)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise4" type="AnimatedSprite2D" parent="UniverseHandler/Foreground3"]
+z_index = 1
+position = Vector2(150, 50)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise5" type="AnimatedSprite2D" parent="UniverseHandler/Foreground3"]
+z_index = 1
+position = Vector2(50, 150)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise6" type="AnimatedSprite2D" parent="UniverseHandler/Foreground3"]
+z_index = 1
+position = Vector2(350, 150)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise7" type="AnimatedSprite2D" parent="UniverseHandler/Foreground3"]
+z_index = 1
+position = Vector2(250, 150)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise8" type="AnimatedSprite2D" parent="UniverseHandler/Foreground3"]
+z_index = 1
+position = Vector2(150, 150)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise9" type="AnimatedSprite2D" parent="UniverseHandler/Foreground3"]
+z_index = 1
+position = Vector2(50, 250)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise10" type="AnimatedSprite2D" parent="UniverseHandler/Foreground3"]
+z_index = 1
+position = Vector2(350, 250)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise11" type="AnimatedSprite2D" parent="UniverseHandler/Foreground3"]
+z_index = 1
+position = Vector2(250, 250)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise12" type="AnimatedSprite2D" parent="UniverseHandler/Foreground3"]
+z_index = 1
+position = Vector2(150, 250)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise13" type="AnimatedSprite2D" parent="UniverseHandler/Foreground3"]
+z_index = 1
+position = Vector2(50, 350)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise14" type="AnimatedSprite2D" parent="UniverseHandler/Foreground3"]
+z_index = 1
+position = Vector2(350, 350)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise15" type="AnimatedSprite2D" parent="UniverseHandler/Foreground3"]
+z_index = 1
+position = Vector2(250, 350)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="StaticNoise16" type="AnimatedSprite2D" parent="UniverseHandler/Foreground3"]
+z_index = 1
+position = Vector2(150, 350)
+sprite_frames = SubResource("SpriteFrames_ynbsj")
+
+[node name="HUD" parent="." instance=ExtResource("5_26a4x")]
 position = Vector2(400, 900)
+
+[editable path="UniverseHandler/Universe"]
