@@ -1,7 +1,7 @@
 extends Area2D
 
-@export var speed = 220 # How fast the player will move (pixels/sec).
-@export var rotation_speed = 3
+@export var speed = 270 # How fast the player will move (pixels/sec).
+@export var rotation_speed = 5
 @export var qubit = 1 # The qubit value stored inside the mouse
 @export var direction = Vector2.RIGHT # The initial direction of the mouse
 var rotating = false
@@ -22,12 +22,13 @@ func _ready():
 	mouse_exited_level.connect(get_parent()._on_mouse_exited)
 	mouse_split.connect(get_parent()._on_mouse_split)
 	mouse_dead.connect(get_parent()._on_mouse_dead)
-	get_parent().next_universe.connect(_on_next_universe)
-	get_parent().new_universe.connect(_on_new_universe)
+	get_parent().universe_value.connect(_on_universe_value)
 	mouse_ready.emit()
 
 
 func _process(delta):
+	if splitting:
+		splitting = false
 	var velocity = direction * speed
 	if qubit == 1:
 		$AnimatedSprite2D.play()
@@ -62,17 +63,12 @@ func _on_area_entered(area):
 		direction = direction.rotated(PI/2)
 		target_angle = add_degrees(current_angle, 90)
 		current_quarter = add_degrees(current_angle, 1) / 90
-	else:
+	else :
 		splitting = true
+		rotating = false
+		qubit = 1
+		shake = 1
 		mouse_split.emit()
-
-
-func next_mouse():
-	var next_mouse = mice.pop_back()
-	next_mouse.mice = mice.duplicate()
-	call_deferred("add_sibling", next_mouse)
-	mouse_dead.emit()
-	queue_free()
 
 
 func add_degrees(angle1, angle2):
@@ -86,16 +82,11 @@ func _on_hadamard_detector_area_entered(area):
 
 func _on_exit_detector_area_exited(area):
 	mouse_exited_level.emit()
+	queue_free()
 
 
-func _on_next_universe():
-	next_mouse()
-
-func _on_new_universe():
-	for i in range(2):
-		var new_mouse = duplicate()
-		new_mouse.position = position
-		new_mouse.qubit = i if splitting else qubit
-		new_mouse.shake = 1 if splitting else shake
-		mice.push_back(new_mouse)
-	next_mouse()
+func _on_universe_value(val):
+	if splitting:
+		qubit = val
+		shake = 1
+	splitting = false

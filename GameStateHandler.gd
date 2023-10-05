@@ -1,15 +1,14 @@
 extends Node2D
 
-var universe = 1
-var total_universe = 1
 var mice = 0
 var exited_mice = 0
 
-signal next_universe
+signal universe_value
 signal new_universe
 
 func _ready():
-	$UniverseLabel.text = str(universe) + "/" + str(total_universe)
+	new_universe.connect(get_parent()._on_new_universe)
+	get_parent().universe_value.connect(_on_universe_value)
 
 
 func _process(delta):
@@ -21,8 +20,6 @@ func _on_mouse_ready():
 
 
 func _on_mouse_split():
-	total_universe += 1
-	$UniverseLabel.text = str(universe) + "/" + str(total_universe)
 	new_universe.emit()
 
 
@@ -32,11 +29,7 @@ func _on_mouse_dead():
 
 func _on_mouse_exited():
 	exited_mice += 1
-	if exited_mice == mice:
-		universe += 1
-		if universe > total_universe:
-			$UniverseLabel.text = "WIN"
-			return
-		next_universe.emit()
-		exited_mice = 0
-		$UniverseLabel.text = str(universe) + "/" + str(total_universe)
+
+
+func _on_universe_value(val):
+	universe_value.emit(val)

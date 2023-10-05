@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtlt543bwpwpe"]
+[gd_scene load_steps=10 format=3 uid="uid://dtlt543bwpwpe"]
 
+[ext_resource type="Script" path="res://Scenes/GameInstance.gd" id="1_ihx28"]
 [ext_resource type="PackedScene" uid="uid://bt3ynf7keq188" path="res://Scenes/background.tscn" id="1_k4pob"]
 [ext_resource type="PackedScene" uid="uid://bmvdhyek727od" path="res://Scenes/game_state_handler.tscn" id="1_x5u5c"]
 [ext_resource type="PackedScene" uid="uid://db8ct184eljqn" path="res://Scenes/block.tscn" id="2_picki"]
@@ -11,200 +12,204 @@
 
 [node name="HadamardTest" type="Node"]
 
-[node name="Background" type="Node2D" parent="."]
+[node name="GameInstance" type="Node2D" parent="."]
+script = ExtResource("1_ihx28")
 
-[node name="background" parent="Background" instance=ExtResource("1_k4pob")]
+[node name="Background" type="Node2D" parent="GameInstance"]
+
+[node name="background" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(100, 100)
 
-[node name="background2" parent="Background" instance=ExtResource("1_k4pob")]
+[node name="background2" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(300, 100)
 
-[node name="background3" parent="Background" instance=ExtResource("1_k4pob")]
+[node name="background3" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(500, 100)
 
-[node name="background4" parent="Background" instance=ExtResource("1_k4pob")]
+[node name="background4" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(100, 300)
 
-[node name="background5" parent="Background" instance=ExtResource("1_k4pob")]
+[node name="background5" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(300, 300)
 
-[node name="background6" parent="Background" instance=ExtResource("1_k4pob")]
+[node name="background6" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(500, 300)
 
-[node name="background7" parent="Background" instance=ExtResource("1_k4pob")]
+[node name="background7" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(100, 500)
 
-[node name="background8" parent="Background" instance=ExtResource("1_k4pob")]
+[node name="background8" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(300, 500)
 
-[node name="background9" parent="Background" instance=ExtResource("1_k4pob")]
+[node name="background9" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(500, 500)
 
-[node name="background10" parent="Background" instance=ExtResource("1_k4pob")]
+[node name="background10" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(700, 100)
 
-[node name="background11" parent="Background" instance=ExtResource("1_k4pob")]
+[node name="background11" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(700, 300)
 
-[node name="background12" parent="Background" instance=ExtResource("1_k4pob")]
+[node name="background12" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(700, 500)
 
-[node name="background13" parent="Background" instance=ExtResource("1_k4pob")]
+[node name="background13" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(100, 700)
 
-[node name="background14" parent="Background" instance=ExtResource("1_k4pob")]
+[node name="background14" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(300, 700)
 
-[node name="background15" parent="Background" instance=ExtResource("1_k4pob")]
+[node name="background15" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(500, 700)
 
-[node name="background16" parent="Background" instance=ExtResource("1_k4pob")]
+[node name="background16" parent="GameInstance/Background" instance=ExtResource("1_k4pob")]
 position = Vector2(700, 700)
 
-[node name="GameStateHandler" parent="." instance=ExtResource("1_x5u5c")]
+[node name="GameStateHandler" parent="GameInstance" instance=ExtResource("1_x5u5c")]
 position = Vector2(100, 200)
 
-[node name="HadamardGate" parent="GameStateHandler" instance=ExtResource("3_3raty")]
+[node name="HadamardGate" parent="GameInstance/GameStateHandler" instance=ExtResource("3_3raty")]
 position = Vector2(250, 450)
 
-[node name="Mouse" parent="GameStateHandler" instance=ExtResource("4_cy36j")]
+[node name="Mouse" parent="GameInstance/GameStateHandler" instance=ExtResource("4_cy36j")]
 position = Vector2(150, 450)
 
-[node name="Mouse2" parent="GameStateHandler" instance=ExtResource("4_cy36j")]
+[node name="Mouse2" parent="GameInstance/GameStateHandler" instance=ExtResource("4_cy36j")]
 position = Vector2(-50, 450)
 
-[node name="Walls" type="Node2D" parent="."]
+[node name="Blocks" type="Node2D" parent="GameInstance/GameStateHandler"]
+position = Vector2(-100, -200)
 
-[node name="Wall" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="block2" parent="GameInstance/GameStateHandler/Blocks" instance=ExtResource("2_picki")]
+position = Vector2(750, 150)
+
+[node name="block3" parent="GameInstance/GameStateHandler/Blocks" instance=ExtResource("2_picki")]
+position = Vector2(550, 650)
+
+[node name="Walls" type="Node2D" parent="GameInstance"]
+
+[node name="Wall" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(-50, 750)
 
-[node name="Wall2" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall2" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(-50, 650)
 
-[node name="Wall3" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall3" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(-50, 550)
 
-[node name="Wall4" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall4" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(-50, 450)
 
-[node name="Wall5" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall5" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(-50, 350)
 
-[node name="Wall6" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall6" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(-50, 250)
 
-[node name="Wall7" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall7" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(-50, 150)
 
-[node name="Wall10" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall10" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(150, -50)
 rotation = 1.5708
 
-[node name="Wall11" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall11" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(250, -50)
 rotation = 1.5708
 
-[node name="Wall12" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall12" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(350, -50)
 rotation = 1.5708
 
-[node name="Wall13" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall13" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(450, -50)
 rotation = 1.5708
 
-[node name="Wall14" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall14" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(550, -50)
 rotation = 1.5708
 
-[node name="Wall15" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall15" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(650, -50)
 rotation = 1.5708
 
-[node name="Wall16" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall16" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(750, -50)
 rotation = 1.5708
 
-[node name="Wall17" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall17" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(850, 50)
 rotation = -3.14159
 
-[node name="Wall18" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall18" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(850, 150)
 rotation = -3.14159
 
-[node name="Wall19" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall19" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(850, 250)
 rotation = -3.14159
 
-[node name="Wall20" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall20" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(850, 350)
 rotation = -3.14159
 
-[node name="Wall21" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall21" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(850, 450)
 rotation = -3.14159
 
-[node name="Wall22" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall22" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(850, 550)
 rotation = -3.14159
 
-[node name="Wall23" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall23" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(850, 650)
 rotation = -3.14159
 
-[node name="Wall24" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall24" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(850, 750)
 rotation = -3.14159
 
-[node name="Wall25" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall25" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(750, 850)
 rotation = -1.5708
 
-[node name="Wall26" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall26" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(650, 850)
 rotation = -1.5708
 
-[node name="Wall27" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall27" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(550, 850)
 rotation = -1.5708
 
-[node name="Wall28" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall28" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(450, 850)
 rotation = -1.5708
 
-[node name="Wall29" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall29" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(350, 850)
 rotation = -1.5708
 
-[node name="Wall30" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall30" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(250, 850)
 rotation = -1.5708
 
-[node name="Wall31" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall31" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(150, 850)
 rotation = -1.5708
 
-[node name="Wall32" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall32" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(50, 850)
 rotation = -1.5708
 
-[node name="Wall33" parent="Walls" instance=ExtResource("3_2tu58")]
+[node name="Wall33" parent="GameInstance/Walls" instance=ExtResource("3_2tu58")]
 position = Vector2(50, -50)
 rotation = 1.5708
 
-[node name="Exits" type="Node2D" parent="."]
+[node name="Exits" type="Node2D" parent="GameInstance"]
 
-[node name="Exit2" parent="Exits" instance=ExtResource("4_us1am")]
+[node name="Exit2" parent="GameInstance/Exits" instance=ExtResource("4_us1am")]
 position = Vector2(50, 50)
 rotation = -1.5708
 
-[node name="HUD" parent="." instance=ExtResource("5_26a4x")]
+[node name="HUD" parent="GameInstance" instance=ExtResource("5_26a4x")]
 position = Vector2(400, 900)
-
-[node name="Blocks" type="Node2D" parent="."]
-
-[node name="block2" parent="Blocks" instance=ExtResource("2_picki")]
-position = Vector2(750, 150)
-
-[node name="block3" parent="Blocks" instance=ExtResource("2_picki")]
-position = Vector2(550, 650)
