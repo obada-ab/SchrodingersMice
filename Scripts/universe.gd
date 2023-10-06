@@ -5,9 +5,11 @@ var exited_mice = 0
 
 signal send_qubit
 signal new_universe
+signal universe_done
 
 func _ready():
 	new_universe.connect(get_parent()._on_new_universe)
+	universe_done.connect(get_parent()._on_universe_done)
 
 
 func _process(delta):
@@ -28,6 +30,8 @@ func _on_mouse_dead():
 
 func _on_mouse_exited():
 	exited_mice += 1
+	if exited_mice == mice:
+		universe_done.emit()
 
 
 func set_qubit(val):

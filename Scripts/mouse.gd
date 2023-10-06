@@ -10,6 +10,8 @@ var current_quarter
 var shake = 1
 var mice = []
 var splitting = false
+var pause_timer = 0
+var blinking = false
 
 
 signal mouse_ready
@@ -28,6 +30,15 @@ func _ready():
 
 
 func _process(delta):
+	if pause_timer > 0:
+		pause_timer = max(0, pause_timer - delta)
+		if blinking:
+			visible = int(pause_timer * 10) % 2
+		return
+	if !visible:
+		visible = true
+	if blinking:
+		blinking = false
 	if splitting:
 		splitting = false
 	var velocity = direction * speed
@@ -37,6 +48,8 @@ func _process(delta):
 		$AnimatedSprite2D.play_backwards()
 	else:
 		$AnimatedSprite2D.stop()
+	if Global.paused:
+		return
 	if rotating:
 		var current_angle = int(round($AnimatedSprite2D.rotation_degrees))
 		if qubit == 1:
@@ -53,6 +66,8 @@ func _process(delta):
 
 func _on_area_entered(area):
 	position = (position / 50).round() * 50
+	if rotating or splitting:
+		return
 	rotating = true
 	if qubit == 1:
 		var current_angle = int(round($AnimatedSprite2D.rotation_degrees))
@@ -86,7 +101,17 @@ func _on_exit_detector_area_exited(area):
 
 
 func _on_send_qubit(val):
+	pause(2)
 	if splitting:
+		blinking = true
 		qubit = val
 		shake = 1
+		print("setting qubit to " + str(val))
+	else:
+		print("my qubit is staying " + str(qubit))
 	splitting = false
+	
+
+
+func pause(pause_duration):
+	pause_timer = pause_duration

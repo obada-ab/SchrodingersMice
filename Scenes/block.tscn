@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://db8ct184eljqn"]
+[gd_scene load_steps=4 format=3 uid="uid://db8ct184eljqn"]
 
 [ext_resource type="Texture2D" uid="uid://b6mf7a1jvrgpv" path="res://Sprites/Block/20eb3d05-f771-4a1b-b8ec-afe569d1843d.png" id="1_h53ep"]
+[ext_resource type="Script" path="res://Scripts/block.gd" id="1_n5cfi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx7ef"]
 size = Vector2(100, 100)
 
 [node name="Block" type="Area2D"]
 texture_filter = 1
-collision_mask = 0
+collision_mask = 64
+script = ExtResource("1_n5cfi")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -16,3 +18,7 @@ texture = ExtResource("1_h53ep")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_bx7ef")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]

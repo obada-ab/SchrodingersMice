@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bx0modq78vjdo"]
+[gd_scene load_steps=7 format=3 uid="uid://bx0modq78vjdo"]
 
 [ext_resource type="Texture2D" uid="uid://c6nffi1degjwi" path="res://Sprites/Static/noise1.png" id="1_463ex"]
+[ext_resource type="Script" path="res://Scripts/foreground.gd" id="1_v0ihm"]
 [ext_resource type="Texture2D" uid="uid://beo5ik83827lw" path="res://Sprites/Static/noise2.png" id="2_has6j"]
 [ext_resource type="Texture2D" uid="uid://b6grp55wsbifb" path="res://Sprites/Static/noise3.png" id="3_km67r"]
 [ext_resource type="Texture2D" uid="uid://11kyauu4bjiq" path="res://Sprites/Static/noise4.png" id="4_xritn"]
@@ -27,6 +28,7 @@ animations = [{
 
 [node name="Foreground" type="Node2D"]
 scale = Vector2(2, 2)
+script = ExtResource("1_v0ihm")
 
 [node name="StaticNoise" type="AnimatedSprite2D" parent="."]
 z_index = 1
