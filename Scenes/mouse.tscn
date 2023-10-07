@@ -1,25 +1,25 @@
 [gd_scene load_steps=10 format=3 uid="uid://b5qqd2nkbfher"]
 
 [ext_resource type="Script" path="res://Scripts/mouse.gd" id="1_c22s2"]
-[ext_resource type="Texture2D" uid="uid://dsdvtf751kbnd" path="res://Sprites/Mouse/37d33ce4-533e-4eb5-a16b-efcd109fb78c.png" id="1_n4x0v"]
-[ext_resource type="Texture2D" uid="uid://byce80mhnat5w" path="res://Sprites/Mouse/d35af0e4-bdd9-4ea6-b427-ab296eaa25a4.png" id="2_4fwc7"]
-[ext_resource type="Texture2D" uid="uid://c8fsmtvx4brv0" path="res://Sprites/Mouse/69e5dea2-3f78-4cad-b656-0f55715a4d4b.png" id="3_0gc0u"]
-[ext_resource type="Texture2D" uid="uid://dp5jjif36osa7" path="res://Sprites/Mouse/87441380-e92b-43a2-82dd-6e4b6958437c.png" id="4_vc43c"]
+[ext_resource type="Texture2D" uid="uid://bifvw2nm4ua3o" path="res://Sprites/Mouse/37d33ce4-533e-4eb5-a16b-efcd109fb78c-2.png" id="2_eormq"]
+[ext_resource type="Texture2D" uid="uid://c6kn5frukrftb" path="res://Sprites/Mouse/87441380-e92b-43a2-82dd-6e4b6958437c-2.png" id="3_eup0c"]
+[ext_resource type="Texture2D" uid="uid://8vv4171yp5y" path="res://Sprites/Mouse/69e5dea2-3f78-4cad-b656-0f55715a4d4b-2.png" id="4_ayn2c"]
+[ext_resource type="Texture2D" uid="uid://l68nr48qgajp" path="res://Sprites/Mouse/d35af0e4-bdd9-4ea6-b427-ab296eaa25a4-2.png" id="5_votp0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_04i3m"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_n4x0v")
+"texture": ExtResource("2_eormq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_4fwc7")
+"texture": ExtResource("5_votp0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_0gc0u")
+"texture": ExtResource("4_ayn2c")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_vc43c")
+"texture": ExtResource("3_eup0c")
 }],
 "loop": true,
 "name": &"idle",
@@ -66,6 +66,26 @@ collision_mask = 128
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_xjsx6")
 
+[node name="EntanglementDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EntanglementDetector"]
+shape = SubResource("RectangleShape2D_6od84")
+debug_color = Color(0.686275, 0.427451, 0.682353, 0.419608)
+
+[node name="ButtonDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonDetector"]
+shape = SubResource("RectangleShape2D_6od84")
+debug_color = Color(0.686275, 0.427451, 0.682353, 0.419608)
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_entered" from="HadamardDetector" to="." method="_on_hadamard_detector_area_entered"]
+[connection signal="area_entered" from="ExitDetector" to="." method="_on_exit_detector_area_entered"]
 [connection signal="area_exited" from="ExitDetector" to="." method="_on_exit_detector_area_exited"]
+[connection signal="area_entered" from="EntanglementDetector" to="." method="_on_entanglement_detector_area_entered"]
+[connection signal="area_exited" from="EntanglementDetector" to="." method="_on_entanglement_detector_area_exited"]
+[connection signal="area_entered" from="ButtonDetector" to="." method="_on_button_detector_area_entered"]

@@ -27,6 +27,7 @@ animations = [{
 }]
 
 [node name="Foreground" type="Node2D"]
+texture_filter = 1
 scale = Vector2(2, 2)
 script = ExtResource("1_v0ihm")
 

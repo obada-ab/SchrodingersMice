@@ -12,6 +12,7 @@ var mice = []
 var splitting = false
 var pause_timer = 0
 var blinking = false
+var entangled_mouse
 
 
 signal mouse_ready
@@ -65,6 +66,12 @@ func _process(delta):
 
 
 func _on_area_entered(area):
+	if Global.paused:
+		return
+	if area.name.begins_with("Button"):
+		return
+	if area.name.begins_with("Toggled") && area.toggled:
+		return
 	position = (position / 50).round() * 50
 	if rotating or splitting:
 		return
@@ -80,10 +87,21 @@ func _on_area_entered(area):
 		target_angle = add_degrees(current_angle, 90)
 		current_quarter = add_degrees(current_angle, 1) / 90
 	else :
-		splitting = true
-		rotating = false
-		shake = 1
+		split()
+		if entangled_mouse:
+			entangled_mouse.split()
 		mouse_split.emit()
+
+
+func split():
+	splitting = true
+	rotating = false
+	shake = 1
+
+
+func enter_superposition():
+	qubit = 2
+	shake = 2.5
 
 
 func add_degrees(angle1, angle2):
@@ -91,8 +109,10 @@ func add_degrees(angle1, angle2):
 
 
 func _on_hadamard_detector_area_entered(area):
-	qubit = 2
-	shake = 2.5
+	if Global.paused:
+		return
+	area.deactivate()
+	enter_superposition()
 
 
 func _on_exit_detector_area_exited(area):
@@ -115,3 +135,35 @@ func _on_send_qubit(val):
 
 func pause(pause_duration):
 	pause_timer = pause_duration
+
+
+func _on_entanglement_detector_area_entered(area):
+	if Global.paused:
+		return
+	if area.entangled_mouse:
+		area.deactivate()
+		entangled_mouse = area.entangled_mouse
+		entangled_mouse.entangled_mouse = self
+		enter_superposition()
+		entangled_mouse.enter_superposition()
+	else:
+		area.entangled_mouse = self
+
+
+func _on_entanglement_detector_area_exited(area):
+	if Global.paused:
+		return
+	if area.entangled_mouse && area.entangled_mouse == self:
+		area.entangled_mouse = null
+
+
+func _on_button_detector_area_entered(area):
+	if Global.paused:
+		return
+	if area.name.begins_with("Button"):
+		area.press()
+
+
+func _on_exit_detector_area_entered(area):
+	mouse_exited_level.emit()
+	queue_free()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://db8ct184eljqn"]
 
-[ext_resource type="Texture2D" uid="uid://b6mf7a1jvrgpv" path="res://Sprites/Block/20eb3d05-f771-4a1b-b8ec-afe569d1843d.png" id="1_h53ep"]
 [ext_resource type="Script" path="res://Scripts/block.gd" id="1_n5cfi"]
+[ext_resource type="Texture2D" uid="uid://b5cpspgr130qk" path="res://Sprites/BlueBlock/374c1368-1edb-4f10-8503-3c3b3de3d0ee-2.png" id="2_1w0nx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx7ef"]
 size = Vector2(100, 100)
@@ -14,7 +14,7 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
-texture = ExtResource("1_h53ep")
+texture = ExtResource("2_1w0nx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_bx7ef")

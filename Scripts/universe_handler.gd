@@ -9,7 +9,10 @@ var mouse_properties = [
 	"splitting",
 	"rotating",
 	"target_angle",
-	"current_quarter"
+	"current_quarter",
+	"collision_layer",
+	"collision_mask",
+	"toggled"
 ]
 var fading_time = 3
 var total_universes = 1
@@ -31,13 +34,29 @@ func _on_new_universe(universe):
 		return
 	var new_universe = universe_scene.instantiate()
 	new_universe.scale = universe.scale
+	
+	var button_block_map = {}
+	var block_block_map = {}
+	
 	for node in universe.get_children():
 		var new_node = node.duplicate()
+		if node.name.begins_with("Button"):
+			button_block_map[new_node] = node.connected_blocks
+		if node.name.contains("Block"):
+			block_block_map[node] = new_node
 		for property in mouse_properties:
 			var value = node.get(property)
 			if value != null:
 				new_node.set(property, value)
 		new_universe.add_child(new_node)
+	
+	for button in button_block_map.keys():
+		var new_connected_blocks = []
+		for block in button_block_map[button]:
+			new_connected_blocks.append(block_block_map[block])
+		for i in range(len(button.connected_blocks)):
+			button.connected_blocks[i] = new_connected_blocks[i]
+	
 	new_universe.position = locations[split_count]
 	foregrounds[split_count].fade(fading_time)
 	call_deferred("add_child", new_universe)
