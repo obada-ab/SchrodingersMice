@@ -28,7 +28,8 @@ func _process(delta):
 func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton && \
 		event.button_index == MOUSE_BUTTON_LEFT && \
-		event.pressed && Global.paused:
+		event.pressed && Global.paused && !Global.frozen && \
+		get_parent().name == "HUD":
 		clicked = true
 
 
@@ -40,6 +41,8 @@ func _input(event):
 		if len(colliding_areas) == 0:
 			global_scale = original_scale
 			global_position = original_position
+			get_parent().remove_child(self)
+			Global.current_scene.get_node("HUD").add_child(self)
 		else:
 			var min_distance = INF
 			var target_area
@@ -50,10 +53,12 @@ func _input(event):
 					target_area = area
 			
 			get_parent().remove_child(self)
-			target_area.add_sibling(self)
+			target_area.get_parent().add_sibling(self)
 			
 			scale = target_area.scale
 			position = target_area.position
+			
+			target_area.queue_free()
 
 
 func _on_area_entered(area):

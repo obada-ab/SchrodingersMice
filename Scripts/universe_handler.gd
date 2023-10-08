@@ -40,6 +40,7 @@ func _on_new_universe(universe):
 	
 	for node in universe.get_children():
 		var new_node = node.duplicate()
+		print("!!::: " + node.name)
 		if node.name.begins_with("Button"):
 			button_block_map[new_node] = node.connected_blocks
 		if node.name.contains("Block"):

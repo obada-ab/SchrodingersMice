@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bymek5a01rr80"]
+[gd_scene load_steps=15 format=3 uid="uid://bymek5a01rr80"]
 
 [ext_resource type="PackedScene" uid="uid://c2o0wmw5hh00f" path="res://Scenes/universe_handler.tscn" id="1_hmdco"]
 [ext_resource type="PackedScene" uid="uid://bmvdhyek727od" path="res://Scenes/universe.tscn" id="2_eeh31"]
@@ -13,11 +13,73 @@
 [ext_resource type="PackedScene" uid="uid://c047fuo8u02ov" path="res://Scenes/placable_space.tscn" id="9_j2pau"]
 [ext_resource type="PackedScene" uid="uid://cuj3h16csa8fl" path="res://Scenes/hud.tscn" id="11_8fy1b"]
 [ext_resource type="PackedScene" uid="uid://c5xlj1h1l6b53" path="res://Scenes/toggled_block.tscn" id="13_l5mcv"]
+[ext_resource type="PackedScene" uid="uid://crcjf5y46d8ev" path="res://Scenes/text_box.tscn" id="14_qf1wp"]
 
 [node name="Level4" type="Node"]
 
 [node name="UniverseHandler" parent="." node_paths=PackedStringArray("foregrounds") instance=ExtResource("1_hmdco")]
 foregrounds = [NodePath("Foreground")]
+
+[node name="Foreground" parent="UniverseHandler" instance=ExtResource("9_fg11s")]
+position = Vector2(409, 22)
+scale = Vector2(1.9, 1.9)
+metadata/_edit_group_ = true
+
+[node name="StaticNoise" parent="UniverseHandler/Foreground" index="0"]
+z_index = 0
+
+[node name="StaticNoise2" parent="UniverseHandler/Foreground" index="1"]
+visible = false
+z_index = 0
+
+[node name="StaticNoise3" parent="UniverseHandler/Foreground" index="2"]
+visible = false
+z_index = 0
+
+[node name="StaticNoise4" parent="UniverseHandler/Foreground" index="3"]
+z_index = 0
+
+[node name="StaticNoise5" parent="UniverseHandler/Foreground" index="4"]
+z_index = 0
+
+[node name="StaticNoise6" parent="UniverseHandler/Foreground" index="5"]
+visible = false
+z_index = 0
+
+[node name="StaticNoise7" parent="UniverseHandler/Foreground" index="6"]
+visible = false
+z_index = 0
+
+[node name="StaticNoise8" parent="UniverseHandler/Foreground" index="7"]
+z_index = 0
+
+[node name="StaticNoise9" parent="UniverseHandler/Foreground" index="8"]
+z_index = 0
+
+[node name="StaticNoise10" parent="UniverseHandler/Foreground" index="9"]
+visible = false
+z_index = 0
+
+[node name="StaticNoise11" parent="UniverseHandler/Foreground" index="10"]
+visible = false
+z_index = 0
+
+[node name="StaticNoise12" parent="UniverseHandler/Foreground" index="11"]
+z_index = 0
+
+[node name="StaticNoise13" parent="UniverseHandler/Foreground" index="12"]
+z_index = 0
+
+[node name="StaticNoise14" parent="UniverseHandler/Foreground" index="13"]
+visible = false
+z_index = 0
+
+[node name="StaticNoise15" parent="UniverseHandler/Foreground" index="14"]
+visible = false
+z_index = 0
+
+[node name="StaticNoise16" parent="UniverseHandler/Foreground" index="15"]
+z_index = 0
 
 [node name="Universe" parent="UniverseHandler" instance=ExtResource("2_eeh31")]
 position = Vector2(12, 24)
@@ -126,33 +188,6 @@ position = Vector2(249.474, 448.421)
 z_index = 2
 position = Vector2(147, 446)
 
-[node name="PlacableSpace" parent="UniverseHandler/Universe" instance=ExtResource("9_j2pau")]
-position = Vector2(349.474, 349.474)
-
-[node name="PlacableSpace2" parent="UniverseHandler/Universe" instance=ExtResource("9_j2pau")]
-position = Vector2(350.526, 149.474)
-
-[node name="PlacableSpace3" parent="UniverseHandler/Universe" instance=ExtResource("9_j2pau")]
-position = Vector2(349.474, 249.474)
-
-[node name="PlacableSpace4" parent="UniverseHandler/Universe" instance=ExtResource("9_j2pau")]
-position = Vector2(349.474, 449.474)
-
-[node name="PlacableSpace6" parent="UniverseHandler/Universe" instance=ExtResource("9_j2pau")]
-position = Vector2(349.474, 549.474)
-
-[node name="PlacableSpace7" parent="UniverseHandler/Universe" instance=ExtResource("9_j2pau")]
-position = Vector2(349.474, 649.474)
-
-[node name="PlacableSpace8" parent="UniverseHandler/Universe" instance=ExtResource("9_j2pau")]
-position = Vector2(350.526, 748.421)
-
-[node name="PlacableSpace5" parent="UniverseHandler/Universe" instance=ExtResource("9_j2pau")]
-position = Vector2(349.474, 50.5263)
-
-[node name="PlacableSpace9" parent="UniverseHandler/Universe" instance=ExtResource("9_j2pau")]
-position = Vector2(249.474, 50.5263)
-
 [node name="Exit" parent="UniverseHandler/Universe" instance=ExtResource("5_l7472")]
 position = Vector2(50, 450)
 rotation = 4.71239
@@ -210,38 +245,51 @@ position = Vector2(250, 649)
 [node name="Block24" parent="UniverseHandler/Universe/Blocks" instance=ExtResource("8_6k3b8")]
 position = Vector2(250, 748)
 
-[node name="Foreground" parent="UniverseHandler" instance=ExtResource("9_fg11s")]
-position = Vector2(413, 22)
-scale = Vector2(1.9, 1.9)
-metadata/_edit_group_ = true
+[node name="PlacableSpaces" type="Node2D" parent="UniverseHandler/Universe"]
 
-[node name="StaticNoise2" parent="UniverseHandler/Foreground" index="1"]
-visible = false
+[node name="PlacableSpace" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("9_j2pau")]
+position = Vector2(349.474, 349.474)
 
-[node name="StaticNoise3" parent="UniverseHandler/Foreground" index="2"]
-visible = false
+[node name="PlacableSpace2" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("9_j2pau")]
+position = Vector2(350.526, 150.526)
 
-[node name="StaticNoise6" parent="UniverseHandler/Foreground" index="5"]
-visible = false
+[node name="PlacableSpace3" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("9_j2pau")]
+position = Vector2(349.474, 249.474)
 
-[node name="StaticNoise7" parent="UniverseHandler/Foreground" index="6"]
-visible = false
+[node name="PlacableSpace4" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("9_j2pau")]
+position = Vector2(349.474, 449.474)
 
-[node name="StaticNoise10" parent="UniverseHandler/Foreground" index="9"]
-visible = false
+[node name="PlacableSpace6" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("9_j2pau")]
+position = Vector2(349.474, 549.474)
 
-[node name="StaticNoise11" parent="UniverseHandler/Foreground" index="10"]
-visible = false
+[node name="PlacableSpace7" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("9_j2pau")]
+position = Vector2(349.474, 649.474)
 
-[node name="StaticNoise14" parent="UniverseHandler/Foreground" index="13"]
-visible = false
+[node name="PlacableSpace8" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("9_j2pau")]
+position = Vector2(350.526, 748.421)
 
-[node name="StaticNoise15" parent="UniverseHandler/Foreground" index="14"]
-visible = false
+[node name="PlacableSpace5" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("9_j2pau")]
+position = Vector2(350.526, 50.5263)
+
+[node name="PlacableSpace10" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("9_j2pau")]
+position = Vector2(149.474, 348.421)
+
+[node name="PlacableSpace11" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("9_j2pau")]
+position = Vector2(150.526, 149.474)
+
+[node name="PlacableSpace12" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("9_j2pau")]
+position = Vector2(149.474, 248.421)
+
+[node name="PlacableSpace13" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("9_j2pau")]
+position = Vector2(150.526, 49.4737)
+
+[node name="PlacableSpace9" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("9_j2pau")]
+position = Vector2(250.526, 50.5263)
 
 [node name="HUD" parent="." instance=ExtResource("11_8fy1b")]
-position = Vector2(400, 909)
+position = Vector2(400, 900)
 scale = Vector2(1, 1)
+metadata/_edit_group_ = true
 
 [node name="Button" parent="HUD" node_paths=PackedStringArray("connected_blocks") instance=ExtResource("3_8fyoy")]
 connected_blocks = [NodePath("../ToggledBlock")]
@@ -260,6 +308,10 @@ modulate = Color(0.388235, 0.509804, 0.870588, 1)
 position = Vector2(102, 1)
 toggled = true
 
+[node name="TextBox" parent="." instance=ExtResource("14_qf1wp")]
+position = Vector2(197, 679)
+scale = Vector2(1.4, 1.4)
+
+[editable path="UniverseHandler/Foreground"]
 [editable path="UniverseHandler/Universe/Walls/Wall21"]
 [editable path="UniverseHandler/Universe/Exit"]
-[editable path="UniverseHandler/Foreground"]

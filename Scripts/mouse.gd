@@ -13,6 +13,7 @@ var splitting = false
 var pause_timer = 0
 var blinking = false
 var entangled_mouse
+var qubit_visible_timer = 0
 
 
 signal mouse_ready
@@ -28,9 +29,14 @@ func _ready():
 	get_parent().send_qubit.connect(_on_send_qubit)
 	position = (position / 50).round() * 50
 	mouse_ready.emit()
+	$Qubit.visible = false
 
 
 func _process(delta):
+	if qubit_visible_timer > 0:
+		qubit_visible_timer = max(0, qubit_visible_timer - delta)
+		if qubit_visible_timer == 0:
+			$Qubit.visible = false
 	if pause_timer > 0:
 		pause_timer = max(0, pause_timer - delta)
 		if blinking:
@@ -113,11 +119,13 @@ func _on_hadamard_detector_area_entered(area):
 		return
 	area.deactivate()
 	enter_superposition()
+	_show_qubit()
 
 
 func _on_exit_detector_area_exited(area):
-	mouse_exited_level.emit()
-	queue_free()
+	pass
+	#mouse_exited_level.emit()
+	#queue_free()
 
 
 func _on_send_qubit(val):
@@ -126,6 +134,7 @@ func _on_send_qubit(val):
 		blinking = true
 		qubit = val
 		shake = 1
+		_show_qubit()
 		print("setting qubit to " + str(val))
 	else:
 		print("my qubit is staying " + str(qubit))
@@ -165,5 +174,17 @@ func _on_button_detector_area_entered(area):
 
 
 func _on_exit_detector_area_entered(area):
+	print(area)
+	print(self)
 	mouse_exited_level.emit()
 	queue_free()
+
+
+func _on_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseMotion:
+		_show_qubit()
+
+func _show_qubit():
+	$Qubit.frame = qubit
+	$Qubit.visible = true
+	qubit_visible_timer = 1.5

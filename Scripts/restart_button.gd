@@ -12,7 +12,7 @@ func _process(delta):
 
 
 func _on_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton && \
+	if !Global.frozen && event is InputEventMouseButton && \
 		event.button_index == MOUSE_BUTTON_LEFT && \
 		event.pressed:
 		Global._reset_scene()

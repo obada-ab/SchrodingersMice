@@ -30,6 +30,8 @@ func _on_mouse_dead():
 
 func _on_mouse_exited():
 	exited_mice += 1
+	print(mice)
+	print(exited_mice)
 	if exited_mice == mice:
 		universe_done.emit()
 
