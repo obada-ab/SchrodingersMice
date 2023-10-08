@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://crcjf5y46d8ev"]
+
+[ext_resource type="Texture2D" uid="uid://bgcclatxp4ga3" path="res://Sprites/TextBox/text_box.png" id="1_2ub33"]
+[ext_resource type="Script" path="res://Scripts/text_box.gd" id="1_unbki"]
+[ext_resource type="FontFile" uid="uid://dlthwowybko7a" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="2_s0j8g"]
+
+[node name="TextBox" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_unbki")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2ub33")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -90.0
+offset_top = -75.0
+offset_right = 105.0
+offset_bottom = 25.0
+theme_override_colors/default_color = Color(0.15625, 0.1875, 0.265625, 1)
+theme_override_fonts/normal_font = ExtResource("2_s0j8g")
+theme_override_font_sizes/normal_font_size = 19
+text = "Welcome. this is your first day at Quantum Cheese® labs, isn't it?"
+
+[node name="Click" type="RichTextLabel" parent="."]
+offset_left = 52.0
+offset_top = 16.0
+offset_right = 95.0
+offset_bottom = 30.0
+theme_override_colors/default_color = Color(0.15625, 0.1875, 0.265625, 1)
+theme_override_fonts/normal_font = ExtResource("2_s0j8g")
+theme_override_font_sizes/normal_font_size = 13
+text = "click"

@@ -1,0 +1,112 @@
+[gd_scene load_steps=7 format=3 uid="uid://bx0modq78vjdo"]
+
+[ext_resource type="Texture2D" uid="uid://c6nffi1degjwi" path="res://Sprites/Static/noise1.png" id="1_463ex"]
+[ext_resource type="Script" path="res://Scripts/foreground.gd" id="1_v0ihm"]
+[ext_resource type="Texture2D" uid="uid://beo5ik83827lw" path="res://Sprites/Static/noise2.png" id="2_has6j"]
+[ext_resource type="Texture2D" uid="uid://b6grp55wsbifb" path="res://Sprites/Static/noise3.png" id="3_km67r"]
+[ext_resource type="Texture2D" uid="uid://11kyauu4bjiq" path="res://Sprites/Static/noise4.png" id="4_xritn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b8irv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_463ex")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_has6j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_km67r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xritn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Foreground" type="Node2D"]
+texture_filter = 1
+scale = Vector2(2, 2)
+script = ExtResource("1_v0ihm")
+
+[node name="StaticNoise" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(50, 50)
+sprite_frames = SubResource("SpriteFrames_b8irv")
+
+[node name="StaticNoise2" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(350, 50)
+sprite_frames = SubResource("SpriteFrames_b8irv")
+
+[node name="StaticNoise3" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(250, 50)
+sprite_frames = SubResource("SpriteFrames_b8irv")
+
+[node name="StaticNoise4" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(150, 50)
+sprite_frames = SubResource("SpriteFrames_b8irv")
+
+[node name="StaticNoise5" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(50, 150)
+sprite_frames = SubResource("SpriteFrames_b8irv")
+
+[node name="StaticNoise6" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(350, 150)
+sprite_frames = SubResource("SpriteFrames_b8irv")
+
+[node name="StaticNoise7" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(250, 150)
+sprite_frames = SubResource("SpriteFrames_b8irv")
+
+[node name="StaticNoise8" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(150, 150)
+sprite_frames = SubResource("SpriteFrames_b8irv")
+
+[node name="StaticNoise9" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(50, 250)
+sprite_frames = SubResource("SpriteFrames_b8irv")
+
+[node name="StaticNoise10" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(350, 250)
+sprite_frames = SubResource("SpriteFrames_b8irv")
+
+[node name="StaticNoise11" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(250, 250)
+sprite_frames = SubResource("SpriteFrames_b8irv")
+
+[node name="StaticNoise12" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(150, 250)
+sprite_frames = SubResource("SpriteFrames_b8irv")
+
+[node name="StaticNoise13" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(50, 350)
+sprite_frames = SubResource("SpriteFrames_b8irv")
+
+[node name="StaticNoise14" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(350, 350)
+sprite_frames = SubResource("SpriteFrames_b8irv")
+
+[node name="StaticNoise15" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(250, 350)
+sprite_frames = SubResource("SpriteFrames_b8irv")
+
+[node name="StaticNoise16" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(150, 350)
+sprite_frames = SubResource("SpriteFrames_b8irv")

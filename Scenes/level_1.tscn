@@ -1,0 +1,403 @@
+[gd_scene load_steps=12 format=3 uid="uid://cdfks625x077p"]
+
+[ext_resource type="PackedScene" uid="uid://c2o0wmw5hh00f" path="res://Scenes/universe_handler.tscn" id="1_pbgv0"]
+[ext_resource type="PackedScene" uid="uid://bmvdhyek727od" path="res://Scenes/universe.tscn" id="2_g0jw6"]
+[ext_resource type="PackedScene" uid="uid://bt3ynf7keq188" path="res://Scenes/background.tscn" id="3_7dsd5"]
+[ext_resource type="PackedScene" uid="uid://cuj3h16csa8fl" path="res://Scenes/hud.tscn" id="4_6t8wu"]
+[ext_resource type="PackedScene" uid="uid://dejxuxoiye3wy" path="res://Scenes/wall.tscn" id="4_hf85x"]
+[ext_resource type="PackedScene" uid="uid://bwkdj25cwnskj" path="res://Scenes/exit.tscn" id="5_5ga80"]
+[ext_resource type="Texture2D" uid="uid://bhcqbkx2gh7vm" path="res://Sprites/Exit/a4c15b66-7f9c-41e9-9400-b2ef12868a122.png.png" id="6_b0gsw"]
+[ext_resource type="PackedScene" uid="uid://b5qqd2nkbfher" path="res://Scenes/mouse.tscn" id="7_qw6oo"]
+[ext_resource type="PackedScene" uid="uid://c047fuo8u02ov" path="res://Scenes/placable_space.tscn" id="8_oukw6"]
+[ext_resource type="PackedScene" uid="uid://db8ct184eljqn" path="res://Scenes/block.tscn" id="9_mgjrm"]
+[ext_resource type="PackedScene" uid="uid://crcjf5y46d8ev" path="res://Scenes/text_box.tscn" id="11_nwkej"]
+
+[node name="Level1" type="Node"]
+
+[node name="UniverseHandler" parent="." instance=ExtResource("1_pbgv0")]
+
+[node name="Universe" parent="UniverseHandler" instance=ExtResource("2_g0jw6")]
+position = Vector2(40, 40)
+scale = Vector2(0.9, 0.9)
+
+[node name="Background" type="Node2D" parent="UniverseHandler/Universe"]
+
+[node name="background" parent="UniverseHandler/Universe/Background" instance=ExtResource("3_7dsd5")]
+position = Vector2(100, 100)
+
+[node name="background2" parent="UniverseHandler/Universe/Background" instance=ExtResource("3_7dsd5")]
+position = Vector2(300, 100)
+
+[node name="background3" parent="UniverseHandler/Universe/Background" instance=ExtResource("3_7dsd5")]
+position = Vector2(500, 100)
+
+[node name="background4" parent="UniverseHandler/Universe/Background" instance=ExtResource("3_7dsd5")]
+position = Vector2(100, 300)
+
+[node name="background5" parent="UniverseHandler/Universe/Background" instance=ExtResource("3_7dsd5")]
+position = Vector2(300, 300)
+
+[node name="background6" parent="UniverseHandler/Universe/Background" instance=ExtResource("3_7dsd5")]
+position = Vector2(500, 300)
+
+[node name="background7" parent="UniverseHandler/Universe/Background" instance=ExtResource("3_7dsd5")]
+position = Vector2(100, 500)
+
+[node name="background8" parent="UniverseHandler/Universe/Background" instance=ExtResource("3_7dsd5")]
+position = Vector2(300, 500)
+
+[node name="background9" parent="UniverseHandler/Universe/Background" instance=ExtResource("3_7dsd5")]
+position = Vector2(500, 500)
+
+[node name="background10" parent="UniverseHandler/Universe/Background" instance=ExtResource("3_7dsd5")]
+position = Vector2(700, 100)
+
+[node name="background11" parent="UniverseHandler/Universe/Background" instance=ExtResource("3_7dsd5")]
+position = Vector2(700, 300)
+
+[node name="background12" parent="UniverseHandler/Universe/Background" instance=ExtResource("3_7dsd5")]
+position = Vector2(700, 500)
+
+[node name="background13" parent="UniverseHandler/Universe/Background" instance=ExtResource("3_7dsd5")]
+position = Vector2(100, 700)
+
+[node name="background14" parent="UniverseHandler/Universe/Background" instance=ExtResource("3_7dsd5")]
+position = Vector2(300, 700)
+
+[node name="background15" parent="UniverseHandler/Universe/Background" instance=ExtResource("3_7dsd5")]
+position = Vector2(500, 700)
+
+[node name="background16" parent="UniverseHandler/Universe/Background" instance=ExtResource("3_7dsd5")]
+position = Vector2(700, 700)
+
+[node name="Walls" type="Node2D" parent="UniverseHandler/Universe"]
+
+[node name="Wall" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(-50, 750)
+
+[node name="Wall2" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(-50, 650)
+
+[node name="Wall3" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(-50, 550)
+
+[node name="Wall4" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(-50, 450)
+
+[node name="Wall5" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(-50, 350)
+
+[node name="Wall6" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(-50, 250)
+
+[node name="Wall7" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(-50, 150)
+
+[node name="Wall10" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(150, -50)
+rotation = 1.5708
+
+[node name="Wall11" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(250, -50)
+rotation = 1.5708
+
+[node name="Wall12" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(350, -50)
+rotation = 1.5708
+
+[node name="Wall13" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(450, -50)
+rotation = 1.5708
+
+[node name="Wall14" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(550, -50)
+rotation = 1.5708
+
+[node name="Wall15" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(650, -50)
+rotation = 1.5708
+
+[node name="Wall16" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(750, -50)
+rotation = 1.5708
+
+[node name="Wall17" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(850, 50)
+rotation = -3.14159
+
+[node name="Wall18" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(850, 150)
+rotation = -3.14159
+
+[node name="Wall19" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(850, 250)
+rotation = -3.14159
+
+[node name="Wall20" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(850, 350)
+rotation = -3.14159
+
+[node name="Wall21" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(850, 450)
+rotation = -3.14159
+
+[node name="Wall22" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(850, 550)
+rotation = -3.14159
+
+[node name="Wall23" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(850, 650)
+rotation = -3.14159
+
+[node name="Wall24" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(850, 750)
+rotation = -3.14159
+
+[node name="Wall25" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(750, 850)
+rotation = -1.5708
+
+[node name="Wall26" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(650, 850)
+rotation = -1.5708
+
+[node name="Wall27" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(550, 850)
+rotation = -1.5708
+
+[node name="Wall29" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(350, 850)
+rotation = -1.5708
+
+[node name="Wall30" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(250, 850)
+rotation = -1.5708
+
+[node name="Wall31" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(150, 850)
+rotation = -1.5708
+
+[node name="Wall32" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(50, 850)
+rotation = -1.5708
+
+[node name="Wall33" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(50, -50)
+rotation = 1.5708
+
+[node name="Wall8" parent="UniverseHandler/Universe/Walls" instance=ExtResource("4_hf85x")]
+position = Vector2(-50, 50)
+
+[node name="Exit" parent="UniverseHandler/Universe" instance=ExtResource("5_5ga80")]
+position = Vector2(450, 751)
+rotation = 3.14159
+
+[node name="Sprite2D" parent="UniverseHandler/Universe/Exit" index="0"]
+position = Vector2(0, -22.5)
+texture = ExtResource("6_b0gsw")
+flip_h = true
+flip_v = true
+
+[node name="Mouse2" parent="UniverseHandler/Universe" instance=ExtResource("7_qw6oo")]
+position = Vector2(350, 650)
+
+[node name="PlacableSpaces" type="Node2D" parent="UniverseHandler/Universe"]
+
+[node name="PlacableSpace" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(350, 50)
+
+[node name="PlacableSpace2" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(450, 50)
+
+[node name="PlacableSpace6" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(550, 50)
+
+[node name="PlacableSpace3" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(750, 50)
+
+[node name="PlacableSpace4" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(650, 50)
+
+[node name="PlacableSpace5" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(250, 50)
+
+[node name="PlacableSpace7" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(150, 50)
+
+[node name="PlacableSpace8" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(50, 50)
+
+[node name="PlacableSpace9" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(350, 150)
+
+[node name="PlacableSpace10" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(450, 150)
+
+[node name="PlacableSpace11" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(550, 150)
+
+[node name="PlacableSpace12" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(750, 150)
+
+[node name="PlacableSpace13" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(650, 150)
+
+[node name="PlacableSpace14" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(250, 150)
+
+[node name="PlacableSpace15" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(150, 150)
+
+[node name="PlacableSpace16" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(50, 150)
+
+[node name="PlacableSpace17" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(350, 250)
+
+[node name="PlacableSpace18" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(450, 250)
+
+[node name="PlacableSpace19" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(550, 250)
+
+[node name="PlacableSpace20" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(750, 250)
+
+[node name="PlacableSpace21" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(650, 250)
+
+[node name="PlacableSpace22" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(250, 250)
+
+[node name="PlacableSpace23" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(150, 250)
+
+[node name="PlacableSpace24" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(50, 250)
+
+[node name="PlacableSpace25" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(350, 350)
+
+[node name="PlacableSpace26" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(450, 350)
+
+[node name="PlacableSpace27" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(550, 350)
+
+[node name="PlacableSpace28" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(750, 350)
+
+[node name="PlacableSpace29" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(650, 350)
+
+[node name="PlacableSpace30" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(250, 350)
+
+[node name="PlacableSpace31" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(150, 350)
+
+[node name="PlacableSpace32" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(50, 350)
+
+[node name="PlacableSpace33" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(350, 450)
+
+[node name="PlacableSpace34" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(450, 450)
+
+[node name="PlacableSpace35" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(550, 450)
+
+[node name="PlacableSpace36" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(750, 450)
+
+[node name="PlacableSpace37" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(650, 450)
+
+[node name="PlacableSpace38" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(250, 450)
+
+[node name="PlacableSpace39" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(150, 450)
+
+[node name="PlacableSpace40" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(50, 450)
+
+[node name="PlacableSpace41" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(350, 550)
+
+[node name="PlacableSpace42" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(450, 550)
+
+[node name="PlacableSpace43" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(550, 550)
+
+[node name="PlacableSpace44" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(750, 550)
+
+[node name="PlacableSpace45" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(650, 550)
+
+[node name="PlacableSpace49" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(450, 650)
+
+[node name="PlacableSpace50" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(550, 650)
+
+[node name="PlacableSpace51" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(750, 650)
+
+[node name="PlacableSpace52" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(650, 650)
+
+[node name="PlacableSpace54" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(550, 750)
+
+[node name="PlacableSpace55" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(750, 750)
+
+[node name="PlacableSpace56" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(650, 750)
+
+[node name="PlacableSpace46" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(250, 550)
+
+[node name="PlacableSpace47" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(150, 550)
+
+[node name="PlacableSpace48" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(50, 550)
+
+[node name="PlacableSpace53" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(250, 650)
+
+[node name="PlacableSpace57" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(150, 650)
+
+[node name="PlacableSpace58" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(50, 650)
+
+[node name="PlacableSpace59" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(250, 750)
+
+[node name="PlacableSpace62" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(350, 750)
+
+[node name="PlacableSpace60" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(150, 750)
+
+[node name="PlacableSpace61" parent="UniverseHandler/Universe/PlacableSpaces" instance=ExtResource("8_oukw6")]
+position = Vector2(50, 750)
+
+[node name="HUD" parent="." instance=ExtResource("4_6t8wu")]
+position = Vector2(400, 900)
+scale = Vector2(1, 1)
+
+[node name="Block" parent="HUD" instance=ExtResource("9_mgjrm")]
+position = Vector2(-100, 0)
+
+[node name="TextBox" parent="." instance=ExtResource("11_nwkej")]
+position = Vector2(215, 210)
+scale = Vector2(1.4, 1.4)
+
+[editable path="UniverseHandler/Universe/Exit"]

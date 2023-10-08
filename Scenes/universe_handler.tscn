@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2o0wmw5hh00f"]
+
+[ext_resource type="Script" path="res://Scripts/universe_handler.gd" id="1_dfneo"]
+
+[node name="UniverseHandler" type="Node"]
+script = ExtResource("1_dfneo")

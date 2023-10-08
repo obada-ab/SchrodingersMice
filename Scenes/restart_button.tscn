@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7xtxflyvtk2n"]
+
+[ext_resource type="Texture2D" uid="uid://r4mixn3w5b5r" path="res://Sprites/RestartButton/9fbcbbbd-0569-412f-839f-d04d07570e47.png" id="1_quav6"]
+[ext_resource type="Script" path="res://Scripts/restart_button.gd" id="1_rh7kd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i51wi"]
+size = Vector2(55, 55)
+
+[node name="RestartButton" type="Area2D"]
+texture_filter = 1
+script = ExtResource("1_rh7kd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_quav6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_i51wi")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

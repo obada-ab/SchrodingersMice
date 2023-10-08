@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmvdhyek727od"]
+
+[ext_resource type="Script" path="res://Scripts/universe.gd" id="1_mmy4x"]
+
+[node name="Universe" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_mmy4x")

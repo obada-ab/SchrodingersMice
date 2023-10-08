@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7esswj5g5xdk"]
+
+[ext_resource type="Script" path="res://Scripts/entanglement_gate.gd" id="1_51s7l"]
+[ext_resource type="Texture2D" uid="uid://dgedftcgqik" path="res://Sprites/EntanglementGate/a4c15b66-7f9c-41e9-9400-b2ef12868a091.png.png" id="1_hjml5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bvbkb"]
+size = Vector2(50, 50)
+
+[node name="EntanglementGate" type="Area2D"]
+texture_filter = 1
+scale = Vector2(2, 2)
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_51s7l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bvbkb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hjml5")

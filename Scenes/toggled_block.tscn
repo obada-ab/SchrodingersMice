@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5xlj1h1l6b53"]
+
+[ext_resource type="Script" path="res://Scripts/block.gd" id="1_ln2yj"]
+[ext_resource type="Texture2D" uid="uid://dftu1458y2bj" path="res://Sprites/BlueBlock/374c1368-1edb-4f10-8503-3c3b3de3d0ee-3.png" id="2_13qjv"]
+[ext_resource type="Texture2D" uid="uid://b5cpspgr130qk" path="res://Sprites/BlueBlock/374c1368-1edb-4f10-8503-3c3b3de3d0ee-2.png" id="3_ve2et"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tcwac"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_13qjv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ve2et")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_elnh7"]
+size = Vector2(100, 100)
+
+[node name="ToggledBlock" type="Area2D"]
+texture_filter = 1
+collision_mask = 64
+script = ExtResource("1_ln2yj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_tcwac")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_elnh7")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
