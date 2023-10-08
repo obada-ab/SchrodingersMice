@@ -12,7 +12,7 @@ You can also download the windows executable from the releases tab
 
 ## Video presentation
 
-TODO
+[Gdrive link](https://drive.google.com/file/d/1H6WtKdcvAWkvGJW-8_5GFYUuO5yyN_Vn/view?usp=drive_link)
 
 <sub>Additional info:</sub><br>
 <sub>made using godot</sub><br>
