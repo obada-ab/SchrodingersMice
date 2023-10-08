@@ -2,7 +2,7 @@
 
 <img src="https://github.com/obada-ab/SchrodingersMice/blob/main/Screenshot.png" width="480">
 
-It's your first day as a quantum mice researcher, guide the mice to the exit while exploring the basics of quantum mechanics
+It's your first day as a quantum mice researcher, guide the mice to the exit while exploring the basics of quantum mechanics!
 
 ## How to play
 
