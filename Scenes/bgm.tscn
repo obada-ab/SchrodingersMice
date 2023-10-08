@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4cslo26amq0x"]
+
+[ext_resource type="AudioStream" uid="uid://tgg1dluq3xl4" path="res://Music/hold the line_1.ogg" id="1_gfd0s"]
+
+[node name="BGM" type="AudioStreamPlayer"]
+stream = ExtResource("1_gfd0s")
+volume_db = -18.447

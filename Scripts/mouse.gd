@@ -135,9 +135,6 @@ func _on_send_qubit(val):
 		qubit = val
 		shake = 1
 		_show_qubit()
-		print("setting qubit to " + str(val))
-	else:
-		print("my qubit is staying " + str(qubit))
 	splitting = false
 	
 
@@ -155,6 +152,8 @@ func _on_entanglement_detector_area_entered(area):
 		entangled_mouse.entangled_mouse = self
 		enter_superposition()
 		entangled_mouse.enter_superposition()
+		_show_qubit()
+		entangled_mouse._show_qubit()
 	else:
 		area.entangled_mouse = self
 
@@ -174,8 +173,6 @@ func _on_button_detector_area_entered(area):
 
 
 func _on_exit_detector_area_entered(area):
-	print(area)
-	print(self)
 	mouse_exited_level.emit()
 	queue_free()
 

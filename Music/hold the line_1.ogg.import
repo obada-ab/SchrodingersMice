@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://tgg1dluq3xl4"
+path="res://.godot/imported/hold the line_1.ogg-be6537ff545a120979ebfd5d1cabeb5e.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music/hold the line_1.ogg"
+dest_files=["res://.godot/imported/hold the line_1.ogg-be6537ff545a120979ebfd5d1cabeb5e.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

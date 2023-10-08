@@ -25,61 +25,29 @@ position = Vector2(409, 22)
 scale = Vector2(1.9, 1.9)
 metadata/_edit_group_ = true
 
-[node name="StaticNoise" parent="UniverseHandler/Foreground" index="0"]
-z_index = 0
-
 [node name="StaticNoise2" parent="UniverseHandler/Foreground" index="1"]
 visible = false
-z_index = 0
 
 [node name="StaticNoise3" parent="UniverseHandler/Foreground" index="2"]
 visible = false
-z_index = 0
-
-[node name="StaticNoise4" parent="UniverseHandler/Foreground" index="3"]
-z_index = 0
-
-[node name="StaticNoise5" parent="UniverseHandler/Foreground" index="4"]
-z_index = 0
 
 [node name="StaticNoise6" parent="UniverseHandler/Foreground" index="5"]
 visible = false
-z_index = 0
 
 [node name="StaticNoise7" parent="UniverseHandler/Foreground" index="6"]
 visible = false
-z_index = 0
-
-[node name="StaticNoise8" parent="UniverseHandler/Foreground" index="7"]
-z_index = 0
-
-[node name="StaticNoise9" parent="UniverseHandler/Foreground" index="8"]
-z_index = 0
 
 [node name="StaticNoise10" parent="UniverseHandler/Foreground" index="9"]
 visible = false
-z_index = 0
 
 [node name="StaticNoise11" parent="UniverseHandler/Foreground" index="10"]
 visible = false
-z_index = 0
-
-[node name="StaticNoise12" parent="UniverseHandler/Foreground" index="11"]
-z_index = 0
-
-[node name="StaticNoise13" parent="UniverseHandler/Foreground" index="12"]
-z_index = 0
 
 [node name="StaticNoise14" parent="UniverseHandler/Foreground" index="13"]
 visible = false
-z_index = 0
 
 [node name="StaticNoise15" parent="UniverseHandler/Foreground" index="14"]
 visible = false
-z_index = 0
-
-[node name="StaticNoise16" parent="UniverseHandler/Foreground" index="15"]
-z_index = 0
 
 [node name="Universe" parent="UniverseHandler" instance=ExtResource("2_eeh31")]
 position = Vector2(12, 24)
@@ -287,6 +255,7 @@ position = Vector2(150.526, 49.4737)
 position = Vector2(250.526, 50.5263)
 
 [node name="HUD" parent="." instance=ExtResource("11_8fy1b")]
+z_index = 1
 position = Vector2(400, 900)
 scale = Vector2(1, 1)
 metadata/_edit_group_ = true
@@ -312,6 +281,11 @@ toggled = true
 position = Vector2(197, 679)
 scale = Vector2(1.4, 1.4)
 
+[node name="RichTextLabel" parent="TextBox" index="1"]
+offset_top = -80.0
+offset_bottom = 29.0
+
 [editable path="UniverseHandler/Foreground"]
 [editable path="UniverseHandler/Universe/Walls/Wall21"]
 [editable path="UniverseHandler/Universe/Exit"]
+[editable path="TextBox"]

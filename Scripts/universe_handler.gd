@@ -54,8 +54,9 @@ func _on_new_universe(universe):
 	for button in button_block_map.keys():
 		var new_connected_blocks = []
 		for block in button_block_map[button]:
-			new_connected_blocks.append(block_block_map[block])
-		for i in range(len(button.connected_blocks)):
+			if block in block_block_map:
+				new_connected_blocks.append(block_block_map[block])
+		for i in range(len(new_connected_blocks)):
 			button.connected_blocks[i] = new_connected_blocks[i]
 	
 	new_universe.position = locations[split_count]

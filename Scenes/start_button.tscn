@@ -17,3 +17,5 @@ texture = ExtResource("2_b31yr")
 shape = SubResource("RectangleShape2D_cxrm6")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

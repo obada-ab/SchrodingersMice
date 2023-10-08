@@ -20,3 +20,13 @@ theme_override_colors/default_color = Color(0.15625, 0.1875, 0.265625, 1)
 theme_override_fonts/normal_font = ExtResource("2_s0j8g")
 theme_override_font_sizes/normal_font_size = 19
 text = "Welcome. this is your first day at Quantum Cheese® labs, isn't it?"
+
+[node name="Click" type="RichTextLabel" parent="."]
+offset_left = 52.0
+offset_top = 16.0
+offset_right = 95.0
+offset_bottom = 30.0
+theme_override_colors/default_color = Color(0.15625, 0.1875, 0.265625, 1)
+theme_override_fonts/normal_font = ExtResource("2_s0j8g")
+theme_override_font_sizes/normal_font_size = 13
+text = "click"

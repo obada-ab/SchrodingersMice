@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cuj3h16csa8fl"]
+[gd_scene load_steps=6 format=3 uid="uid://cuj3h16csa8fl"]
 
 [ext_resource type="Texture2D" uid="uid://d3lxdms83riyb" path="res://Sprites/HUD/ea3498eb-8d17-4e8b-b3a0-a1b0144ac91a.png" id="1_7isvl"]
 [ext_resource type="PackedScene" uid="uid://dw0dkcnnguixm" path="res://Scenes/start_button.tscn" id="2_4y6j6"]
 [ext_resource type="PackedScene" uid="uid://c7xtxflyvtk2n" path="res://Scenes/restart_button.tscn" id="3_x4jdp"]
+[ext_resource type="FontFile" uid="uid://dlthwowybko7a" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="4_4kfo7"]
+[ext_resource type="Script" path="res://Scripts/Level.gd" id="5_1jmyg"]
 
 [node name="HUD" type="Node2D"]
 texture_filter = 1
@@ -17,3 +19,15 @@ position = Vector2(-297.5, -37.5)
 
 [node name="RestartButton" parent="." instance=ExtResource("3_x4jdp")]
 position = Vector2(-297.5, 40)
+
+[node name="Level" type="RichTextLabel" parent="."]
+offset_left = 303.0
+offset_top = -37.0
+offset_right = 376.0
+offset_bottom = 33.0
+theme_override_colors/default_color = Color(0.15625, 0.1875, 0.265625, 1)
+theme_override_fonts/normal_font = ExtResource("4_4kfo7")
+theme_override_font_sizes/normal_font_size = 33
+text = "LVL
+ 1"
+script = ExtResource("5_1jmyg")

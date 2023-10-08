@@ -16,3 +16,13 @@ func _on_input_event(viewport, event, shape_idx):
 		event.button_index == MOUSE_BUTTON_LEFT && \
 		event.pressed:
 		Global._reset_scene()
+
+
+func _on_mouse_entered():
+	if !Global.frozen:
+		self.modulate.a = 0.7
+
+
+func _on_mouse_exited():
+	if !Global.frozen:
+		self.modulate.a = 1

@@ -36,10 +36,22 @@ const level_text = [
 	[
 		"You're starting to become good at this, a fast learner indeed",
 		"You can think of the mouse's collapse moment as a branching point in time",
-		"Essentially creating two universes, one for each possibility",
-		"Of course, this is all theoretical and what you see on the monitors is-",
-		"a simulation. Now, can you help this mouse escape in both \"universes\"?",
+		"Essentially creating two universes, one for each possibility. Of course-",
+		"this is all theoretical and what you see on the monitors is a simulation.",
+		"Now, can you help this mouse escape in both simulated universes?",
 	],
+	[],
+	[
+		"Let's explore another important property of quantum mice",
+		"This here is an entanglement block, two mice need to touch it simultaneously-",
+		"to activate it. These two mice will become \"entangled\": If the value of one-",
+		"entangled mouse collapses, the value of the paired mouse collapses instantly-",
+		"to the same value regardless of the distance between them",
+		"Try running the simulation for yourself, and find a way to save the mice",
+	],
+	[],
+	[],
+	[]
 ]
 var level_text_counter = 0
 
@@ -56,6 +68,9 @@ func _ready():
 	var root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)
 	_check_level()
+	var bgm = preload("res://Scenes/bgm.tscn").instantiate()
+	root.call_deferred("add_child", bgm)
+	bgm.call_deferred("play")
 
 
 func goto_scene(path, check_text):
